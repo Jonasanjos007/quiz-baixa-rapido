@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz da Tabuada</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/iniciar_jogo/iniciar.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/logo.png') }}" type="image/png">
+  <link rel="manifest" href="/static/manifest.json">
+<!-- 📲 iOS PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Quiz da Tabuada">
+<link rel="apple-touch-icon" href="/static/imagens/logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/imagens/logo-180.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/imagens/logo-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/imagens/logo-152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/imagens/logo-180.png">
+
+
+</head>
+
+<body>
+  <!-- 🎵 Música de fundo (landing) -->
+  <audio id="bgmusic" preload="auto" loop playsinline>
+    <source src="{{ url_for('static', filename='audio/musica.mp3') }}" type="audio/mpeg">
+  </audio>
+  <!-- 🔊 Botão mute/desmute -->
+  <button id="toggleMute" class="botao-mudo" aria-label="Alternar som">🔇</button>
+
+  <!-- 🔔 Overlay para solicitar toque (se autoplay com som for bloqueado) -->
+  <div id="soundGate" class="sound-gate">
+    <div class="sound-card">
+      <h3>Ativar som?</h3>
+      <p>Tocamos uma trilha de fundo para deixar o jogo mais divertido.</p>
+      <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap;">
+        <button id="enableSound" class="sound-cta">🔊 Tocar música</button>
+        <button id="enterMuted" class="sound-cta secondary">❌ Cancelar</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="main-wrap page">
+      <div class="card">
+        <h1>Bem Vindo</h1>
+        <h1>🎯 Quiz da Tabuada 🎯</h1>
+
+        <button id="iniciar">Iniciar Jogo</button>
+</div>
+
+        <div class="arrow">⬆️</div>
+      </div>
+    </div>
+    <button class="btn-manual" id="manualBtn">📖 Manual</button>
+  </div>
+  <!-- 📖 Botão flutuante Manual -->
+  <div class="botao-nuvem">
+    <div class="btn-duvida" id="btnDuvida">?</div>
+    <div class="nuvem-texto" id="praticar">Vamos Praticar?</div>
+<!-- BOTÃO DE INSTALAÇÃO DO APP -->
+
+
+  </div>
+  <script src="static/js/iniciar.js">
+     let deferredPrompt;
+
+  // Esconde o botão por padrão
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    // Impede o prompt automático
+    e.preventDefault();
+    deferredPrompt = e;
+    // Exibe o botão para o usuário
+  });
+
+
+  // Opcional: esconder o botão quando já estiver instalado
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA instalado!');
+  });
+  </script>
+<script src="/static/service-worker.js"></script>
+
+</body>
+
+</html>

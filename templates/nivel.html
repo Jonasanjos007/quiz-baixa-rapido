@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Escolha o Nível</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pagina_nivel/nivel.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='imagens/logo.png') }}" type="image/png">
+</head>
+
+<body class="body_nivel">
+  <!-- Vídeo de fundo -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="{{ url_for('static', filename='video/vd.mp4') }}" type="video/mp4">
+  </video>
+  <!-- Música de fundo -->
+  <audio id="bgmusic" autoplay loop preload="auto" playsinline>
+    <source src="{{ url_for('static', filename='audio/audio_nivel.mp3') }}" type="audio/mpeg">
+  </audio>
+  <!-- Botão de mute -->
+  <button id="toggleMute" class="botao-mudo" aria-label="Alternar som">🔊</button>
+  <div class="container_nivel">
+    <h1 class="h1_nivel">🎯 Escolha o Nível de Dificuldade</h1>
+    <form action="{{ url_for('iniciar') }}" method="POST" class="options">
+      <button type="submit" name="nivel" value="Facil">🟢 Facil:Tabuada de 1 Algarismo </button>
+      <button type="submit" name="nivel" value="medio">🟡 Médio:Tabuada de 2 Algarismo </button>
+      <button type="submit" name="nivel" value="dificil">🟠 Difícil:Tabuada de 3 Algarismo (+,-) </button>
+      <button type="submit" name="nivel" value="Extremo">🔴 Extremo:Tabuada de 3 Algarismo (+,-,/,*) </button>
+    </form>
+  </div>
+  <script src="static/js/nivel.js"></script>
+</body>
+</html>

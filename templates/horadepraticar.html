@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora de Praticar - Matemática Divertida</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/praticar/praticar.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='imagens/logo.png') }}" type="image/png">
+
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <button class="top-button"><a href="{{ url_for('inicio') }}">🏠 Início</a></button>
+            <button class="top-button" onclick="celebrar()">🎊 Celebrar</button>
+            <button class="top-button" onclick="alternarTema()">🌙 Tema</button>
+        </div>
+        <header>
+            <h1>🕒 Hora de Praticar! 🎉</h1>
+            <p class="subtitle">Aprenda Matemática de um Jeito Divertido!</p>
+            <p class="intro">Seja bem-vindo ao seu espaço de prática matemática! Aqui você pode treinar tabuadas,
+                aprender dicas de cálculo mental e responder perguntas divertidas.</p>
+        </header>
+
+        <div class="sections-container">
+            <!-- Seção 1: Tabuada -->
+            <div class="secao">
+                <h2>🧮 Tabuada Interativa</h2>
+                <p>Digite um número para ver a sua tabuada completa!</p>
+                <input type="number" id="numeroTabuada" placeholder="Ex: 7" min="1">
+                <button onclick="mostrarTabuada()">Mostrar Tabuada</button>
+                <div id="tabuadaResultado" class="tabuada-resultado"></div>
+            </div>
+            <!-- Seção 2: Dicas de Cálculo Mental -->
+            <div class="secao">
+                <h2>💡 Dicas de Cálculo Mental</h2>
+                <p>Clique no botão para descobrir uma super dica!</p>
+                <button onclick="mostrarDica()">Nova Dica</button>
+                <div id="dicasMat">
+                    <div class="dica">
+                        <h3>✨ Dica Inicial</h3>
+                        <p>Clique no botão "Nova Dica" para aprender uma estratégia de cálculo mental!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Seção 3: Perguntas Aleatórias -->
+            <div class="secao">
+                <h2>❓ Pergunta Relâmpago</h2>
+                <p>Teste seus conhecimentos com uma pergunta surpresa!</p>
+                <div class="pontuacao" id="pontuacao">Acertos: 0 | Erros: 0</div>
+                <div class="progresso" id="progresso">Pergunta 0 de 40</div>
+                <button onclick="iniciarQuiz()" id="btnIniciar">Iniciar Quiz</button>
+
+                <div class="pergunta-container" id="perguntaContainer" style="display: none;">
+                    <div class="pergunta" id="perguntaTexto"></div>
+                    <div class="opcoes" id="opcoesResposta">
+                        <!-- As opções serão geradas por JavaScript -->
+                    </div>
+                </div>
+                <div class="resultado" id="resultadoPergunta"></div>
+                <div class="final-message" id="finalMessage"></div>
+            </div>
+        </div>
+        <footer>
+            <p>Divirta-se aprendendo matemática! 💫 | Hora de Praticar © 2023</p>
+        </footer>
+    </div>
+  <script src="static/js/praticar.js"></script>
+</body>
+</html>

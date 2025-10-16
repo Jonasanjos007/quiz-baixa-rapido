@@ -1,0 +1,20 @@
+{
+  "name": "Quiz da Tabuada",
+  "short_name": "QuizTabuada",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0b15",
+  "theme_color": "#0b0b15",
+  "icons": [
+    {
+      "src": "/static/imagens/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/imagens/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
